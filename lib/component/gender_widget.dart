@@ -1,23 +1,29 @@
-import 'package:bmi_calculator/models/gender_model.dart';
 import 'package:flutter/material.dart';
 class Gender extends StatelessWidget {
-  const Gender({super.key, required this.model,});
-final GenderModel model;
+  const Gender({super.key, required this.icon, required this.type, required this.color, this.onTap, });
 
-
+final IconData icon;
+final String type;
+final Color color;
+final Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color:Color(0xFF161527),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(model.icon,size: 50, color: Colors.white,),
-          Text(model.text,style: TextStyle(fontSize: 30 ,color: Color(0xFF474657)),),
-        ],
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap ,
+        child: Container(
+          decoration: BoxDecoration(
+            color:color,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon , size: 50, color: Colors.white,),
+              Text(type,style: const TextStyle(fontSize: 30 ,color: Color(0xFF474657)),),
+            ],
+          ),
+        ),
       ),
     );
   }
