@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../models/result_model.dart';
 
 class ResultScreen extends StatelessWidget {
-  ResultScreen({
+  const ResultScreen({
     required this.result,
     super.key,
     required this.height,
